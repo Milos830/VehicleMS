@@ -12,7 +12,7 @@ import java.util.Date;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class VecihleHire {
+public class VehicleHire {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
