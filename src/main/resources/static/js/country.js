@@ -1,6 +1,5 @@
 $('document').ready(function () {
-
-    $('table #editButton').on('click', function () {
+    $('table #editButton').on('click', function (event) {
         event.preventDefault();
 
         // trying to hit url   /countries/findById/?id=1
@@ -17,4 +16,15 @@ $('document').ready(function () {
 
         $('#editModal').modal();
     });
+
+    $('table #deleteButton').on('click', function (event) {
+        event.preventDefault();
+
+        var href = $(this).attr('href');
+        $('#confirmDeleteButton').attr('href', href);
+
+        $('#deleteModal').modal();
+    });
+
+
 });

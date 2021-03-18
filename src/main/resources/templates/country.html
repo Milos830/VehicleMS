@@ -427,8 +427,10 @@
                   <td>
                     <div class="btn-group">
                         <a th:href="@{/countries/findById/(id=${country.id})}" class="btn btn-primary" id="editButton">Edit</a>
+                        <a th:href="@{/countries/delete/(id=${country.id})}" class="btn btn-danger" id="deleteButton">Delete</a>
                     </div>
                   </td>
+
               </tr>
               </tbody>
           </table>
@@ -501,7 +503,7 @@
       <div class="modal-dialog">
           <div class="modal-content">
               <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">Update Country</h5>
+                  <h5 class="modal-title" id="exampleModalLabel1">Update Country</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
@@ -539,12 +541,33 @@
               </div>
               <div class="modal-footer">
                   <!-- btn Close is out side the <form> else if it inside it has same function es Submit button-->
-                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
               </div>
           </div>
       </div>
   </div>
+<!--End of Edit functionality-->
 
+<!--  Start of Delete Modal functionality-->
+  <div class="modal" id="deleteModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+                  <h5 class="modal-title">Confirm Delete</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+                  <p>Are you sure you want to delete this record ? </p>
+              </div>
+              <div class="modal-footer">
+                  <a class="btn btn-primary" id="confirmDeleteButton" href="#">Yes, Delete</a>
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+              </div>
+          </div>
+      </div>
+  </div>
     <!--  End of add new Country pop up window-->
   <!-- container section end -->
   <!-- javascripts -->
