@@ -5,6 +5,7 @@ import com.milos.fleetapp.services.CountryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
 
@@ -24,6 +25,12 @@ public class CountryController {
         model.addAttribute("countries", countryList);
 
         return "country";
+    }
+
+    @PostMapping("/countries/addNew")
+    public String addNew(Country country) {
+        countryService.save(country);
+        return "redirect:/countries";
     }
 
 
