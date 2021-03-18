@@ -4,10 +4,10 @@ import com.milos.fleetapp.models.Country;
 import com.milos.fleetapp.services.CountryService;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @Controller
 public class CountryController {
@@ -33,5 +33,16 @@ public class CountryController {
         return "redirect:/countries";
     }
 
+    @RequestMapping("/countries/findById")
+    @ResponseBody
+    public Optional<Country> findById(int id){
+        return countryService.findById(id);
+    }
+
+    @RequestMapping(value = "/countries/update", method = {RequestMethod.PUT, RequestMethod.GET})
+    public String update(Country country) {
+        countryService.save(country);
+        return "redirect:/countries";
+    }
 
 }
