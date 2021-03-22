@@ -306,84 +306,95 @@
     <!--header end-->
 
     <!--sidebar start-->
-    <aside>
-      <div id="sidebar" class="nav-collapse ">
-        <!-- sidebar menu start-->
-        <ul class="sidebar-menu">
-          <li class="">
-            <a class="" href="index.html">
+      <aside>
+          <div id="sidebar" class="nav-collapse ">
+              <!-- sidebar menu start-->
+              <ul class="sidebar-menu">
+                  <li class="active">
+                      <a class="" th:href="@{/index}">
                           <i class="icon_house_alt"></i>
                           <span>Dashboard</span>
                       </a>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
                           <i class="icon_document_alt"></i>
-                          <span>Forms</span>
+                          <span>Vehicles</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
-            <ul class="sub">
-              <li><a class="" href="form_component.html">Form Elements</a></li>
-              <li><a class="" href="form_validation.html">Form Validation</a></li>
-            </ul>
-          </li>
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
+                      <ul class="sub">
+                          <li><a class="" th:href="@{/vehicles}">Vehicle Data</a></li>
+                          <li><a class="" th:href="@{/vehiclemaintenance}">Maintenance</a></li>
+                          <li><a class="" th:href="@{/vehiclemovements}">Movements</a></li>
+                          <li><a class="" th:href="@{/vehiclehires}">Hires</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
                           <i class="icon_desktop"></i>
-                          <span>UI Fitures</span>
+                          <span>Parameters</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
-            <ul class="sub">
-              <li><a class="" href="general.html">Components</a></li>
-              <li><a class="" href="buttons.html">Buttons</a></li>
-              <li><a class="" href="grids.html">Grids</a></li>
-            </ul>
-          </li>
-          <li>
-            <a class="" href="widgets.html">
-                          <i class="icon_genius"></i>
-                          <span>Widgets</span>
-                      </a>
-          </li>
-          <li>
-            <a class="" href="chart-chartjs.html">
-                          <i class="icon_piechart"></i>
-                          <span>Charts</span>
-
-                      </a>
-
-          </li>
-
-          <li class="sub-menu">
-            <a href="javascript:;" class="">
-                          <i class="icon_table"></i>
-                          <span>Tables</span>
+                      <ul class="sub">
+                          <li><a class="" th:href="@{/vehiclemake}">Vehicle Make</a></li>
+                          <li><a class="" th:href="@{/vehicletypes}">Vehicle Type</a></li>
+                          <li><a class="" th:href="@{/vehiclemodels}">Vehicle Model</a></li>
+                          <li><a class="" th:href="@{/vehiclestatuses}">Status Values</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_desktop"></i>
+                          <span>People</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
-            <ul class="sub">
-              <li><a class="" href="basic_table.html">Basic Table</a></li>
-            </ul>
-          </li>
-
-          <li class="sub-menu ">
-            <a href="javascript:;" class="">
-                          <i class="icon_documents_alt"></i>
-                          <span>Pages</span>
+                      <ul class="sub">
+                          <li><a class="" th:href="@{/employees}">Employees</a></li>
+                          <li><a class="" th:href="@{/clients}">Clients</a></li>
+                          <li><a class="" th:href="@{/suppliers}">Suppliers</a></li>
+                          <li><a class="" th:href="@{/contacts}">Contacts</a></li>
+                          <li><a class="" th:href="@{/users}">Users</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_desktop"></i>
+                          <span>HR Settings</span>
                           <span class="menu-arrow arrow_carrot-right"></span>
                       </a>
-            <ul class="sub">
-              <li><a class="" href="profile.html">Profile</a></li>
-              <li><a class="" href="login.html"><span>Login Page</span></a></li>
-              <li><a class="" href="contact.html"><span>Contact Page</span></a></li>
-              <li><a class="active" href="blank.html">Blank Page</a></li>
-              <li><a class="" href="404.html">404 Error</a></li>
-            </ul>
-          </li>
+                      <ul class="sub">
+                          <li><a class="" th:href="@{/jobtitles}">Job Titles</a></li>
+                          <li><a class="" th:href="@{/employeetypes}">Employee Types</a></li>
 
-        </ul>
-        <!-- sidebar menu end-->
-      </div>
-    </aside>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_desktop"></i>
+                          <span>Accounts</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" th:href="@{/invoices}">Invoices</a></li>
+                          <li><a class="" th:href="@{/invoicestatus}">Invoice Status Values</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" class="">
+                          <i class="icon_desktop"></i>
+                          <span>Globals</span>
+                          <span class="menu-arrow arrow_carrot-right"></span>
+                      </a>
+                      <ul class="sub">
+                          <li><a class="" th:href="@{/countries}">Countries</a></li>
+                          <li><a class="" th:href="@{/states}">States</a></li>
+                          <li><a class="" th:href="@{/locations}">Locations</a></li>
+                      </ul>
+                  </li>
+              </ul>
+              <!-- sidebar menu end-->
+          </div>
+      </aside>
     <!--sidebar end-->
 
     <!--main content start-->
@@ -403,7 +414,7 @@
         </div>
         <!-- page start-->
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal" >Add new  Country</button>
-          <table class="table">
+          <table class="table table-striped table-advance table-responsive">
               <thead>
               <tr>
                   <th>Id</th>
@@ -426,8 +437,9 @@
                   <td th:text="${country.continent}"></td>
                   <td>
                     <div class="btn-group">
-                        <a th:href="@{/countries/findById/(id=${country.id})}" class="btn btn-primary" id="editButton">Edit</a>
-                        <a th:href="@{/countries/delete/(id=${country.id})}" class="btn btn-danger" id="deleteButton">Delete</a>
+                        <a th:href="@{/countries/findById/(id=${country.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>
+                        <a th:href="@{/countries/findById/(id=${country.id})}"class="btn btn-success" id="detailsCountryButton"><i class="icon_document_alt"></i></a>
+                        <a th:href="@{/countries/delete/(id=${country.id})}" class="btn btn-danger" id="deleteButton"><i class="icon_close_alt2"></i></a>
                     </div>
                   </td>
 
@@ -468,7 +480,7 @@
                           <input type="text" class="form-control" id="recipient-name" name="description">
                       </div>
                       <div class="form-group">
-                          <label for="recipient-name" class="col-form-label">Capital:</label>
+                          <label for="capital" class="col-form-label">Capital:</label>
                           <input type="text" class="form-control" id="capital" name="capital">
                       </div>
                       <div class="form-group">
@@ -569,6 +581,66 @@
       </div>
   </div>
     <!--  End of add new Country pop up window-->
+  <!--Detail Modal -->
+  <div class="modal fade" id="detailsCountryModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
+      <form>
+          <div class="modal-dialog" role="document">
+              <div class="modal-content">
+                  <div class="modal-header">
+                      <h5 class="modal-title" id="editModalLabel">Country Details</h5>
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                      </button>
+                  </div>
+                  <div class="modal-body">
+
+                      <div class="form-group">
+                          <label class="col-form-label">Id:</label>
+                          <input type="text" class="form-control" id="idDetails" name="id" readonly>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="ddlCountryCode" class="col-form-label">Code: </label>
+                          <input class="form-control" id="ddlCountryCode" name="code" readonly />
+                      </div>
+
+                      <div class="form-group">
+                          <label for="countryCapital" class="col-form-label">Capital:</label>
+                          <input type="text" class="form-control" id="countryCapital" name="capital" readonly>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="descrDetails" class="col-form-label">Description:</label>
+                          <input type="text" class="form-control" id="descrDetails" name="description" readonly>
+                      </div>
+
+                      <div class="form-group">
+                          <label for="nationalityDetails" class="col-form-label">Nationality:</label>
+                          <input type="text" class="form-control" id="nationalityDetails" name="nationality" readonly>
+                      </div>
+
+                      <div class="form-group">
+                          <label class="col-form-label">Continent:</label>
+                          <input type="text" class="form-control" id="continentCountryDetails" name="continent" readonly>
+                      </div>
+
+                      <div class="form-group">
+                          <label class="col-form-label">Last Updated By:</label>
+                          <input type="text" class="form-control" id="lastModifiedByDetailsCountry" name="countryLastModifiedBy" readonly>
+                      </div>
+
+                      <div class="form-group">
+                          <label class="col-form-label">Last Updated On:</label>
+                          <input type="text" class="form-control" id="lastModifiedDateDetailsCountry" name="countryLastModifiedDate" readonly>
+                      </div>
+                  </div>
+                  <div class="modal-footer">
+                      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+              </div>
+          </div>
+      </form>
+  </div>
   <!-- container section end -->
   <!-- javascripts -->
   <script src="js/jquery.js"></script>
