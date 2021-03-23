@@ -2,7 +2,7 @@ $('document').ready(function () {
     $('table #editStateButton').on('click', function (event) {
         event.preventDefault();
 
-        // trying to hit url   /countries/findById/?id=1
+        // trying to hit url   /states/findById/?id=1
         var href = $(this).attr('href');
 
         $.get(href, function (state, status) {
