@@ -47,7 +47,7 @@ public class LocationController {
         return LOCATION_Locations_URL;
     }
 
-    @GetMapping("locations/findById")
+    @GetMapping("/locations/findById")
     @ResponseBody
     public Optional<Location> findLocationById(Integer id) {
        return locationService.findLocationById(id);

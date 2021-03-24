@@ -15,6 +15,7 @@ public class LocationService {
     public LocationService(LocationRepository locationRepository) {
         this.locationRepository = locationRepository;
     }
+
         //get list of Locations
     public List<Location> getLocations () {
        return locationRepository.findAll();
