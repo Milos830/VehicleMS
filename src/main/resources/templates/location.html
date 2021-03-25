@@ -484,7 +484,6 @@
                               <label for="ddlLAdd" class="col-form-label">Country:</label>
                               <select type="text" class="form-control" id="ddlLAdd" name="countryid">
                                   <option>-- SELECT --</option>
-                                  <!--/*@thymesVar id="country" type="com.milos.fleetapp.models.Country"*/-->
                                   <option th:each="country :${countries}"
                                           th:value="${country.id}"
                                           th:text="${country.description}">
@@ -495,7 +494,6 @@
                               <label for="ddlLAdd2" class="col-form-label">State:</label>
                               <select type="text" class="form-control" id="ddlLAdd2" name="stateid">
                                   <option>-- SELECT --</option>
-                                  <!--/*@thymesVar id="country" type="com.milos.fleetapp.models.State"*/-->
                                   <option th:each="state :${states}"
                                           th:value="${state.id}"
                                           th:text="${state.name}">

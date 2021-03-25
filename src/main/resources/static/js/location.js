@@ -7,8 +7,8 @@ $('document').ready(function () {
 
         $.get(href, function (location, status) {
             $('#idLocationEdit').val(location.id);
-            $('#cityLEdit').val(location.city);
-            $('#addressLEdit').val(location.address);
+            $('#cityLocationEdit').val(location.city);
+            $('#addressLocationEdit').val(location.address);
             $('#ddlLocationStateEdit').val(location.stateid);
             $('#ddlLocationCountryEdit').val(location.countryid);
             $('#descriptionLocationEdit').val(location.description);
