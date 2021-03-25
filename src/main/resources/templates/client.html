@@ -444,8 +444,8 @@
                             <td th:text="${client.mobile}">Mobile</td>
                             <td th:text="${client.website}">Website</td>
                             <td th:text="${client.email}">E-mail</td>
-                            <td th:text="${client.countryid}">Country</td>
-                            <td th:text="${client.stateid}">State</td>
+                            <td th:text="${client.getCountry().description}">Country</td>
+                            <td th:text="${client.getState().name}">State</td>
                             <td>
                                 <div class="btn-group">
                                     <a th:href="@{/clients/findById/(id=${client.id})}" class="btn btn-primary" id="editButton"><i class="icon_pencil-edit"></i></a>

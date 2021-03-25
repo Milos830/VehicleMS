@@ -433,8 +433,8 @@
                               <td th:text="${location.description}">Description</td>
                               <td th:text="${location.city}">City</td>
                               <td th:text="${location.address}">Address</td>
-                              <td th:text="${location.countryid}">Country</td>
-                              <td th:text="${location.stateid}">State</td>
+                              <td th:text="${location.getCountry().description}">Country</td>
+                              <td th:text="${location.getState().name}">State</td>
                               <td th:text="${location.details}">Details</td>
                               <td>
                                   <div class="btn-group">
