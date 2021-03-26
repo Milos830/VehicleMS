@@ -420,10 +420,10 @@
                         <tr>
                             <th>Id</th>
                             <th>Vehicle</th>
-                            <th>Location Start</th>
-                            <th>Start Date</th>
-                            <th>Location End</th>
-                            <th>End Date</th>
+                            <th>Departed From</th>
+                            <th>Departure date</th>
+                            <th>Arrived At</th>
+                            <th>Arrived date</th>
                             <th>Remarks</th>
                             <th>Actions</th>
                         </tr>
@@ -478,7 +478,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="ddlStartLocationAdd" class="col-form-label">Start Location:</label>
+                            <label for="ddlStartLocationAdd" class="col-form-label">Departed from:</label>
                             <select type="text" class="form-control" id="ddlStartLocationAdd" name="startlocationid" required>
                                 <option>-- SELECT --</option>
                                 <option th:each="location :${locations}"
@@ -488,11 +488,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="startDateAdd" class="col-form-label">Start Date:</label>
-                            <input type="date" class="form-control" id="startDateAdd" name="date1" placeholder="Start Date" required>
+                            <label for="startDateAdd" class="col-form-label">Departure date:</label>
+                            <input type="date" class="form-control" id="startDateAdd" name="date1" placeholder="Departure date" required>
                         </div>
                         <div class="form-group">
-                            <label for="ddlEndtLocationAdd" class="col-form-label">End Location:</label>
+                            <label for="ddlEndtLocationAdd" class="col-form-label">Arrived at:</label>
                             <select type="text" class="form-control" id="ddlEndtLocationAdd" name="endlocationid" required>
                                 <option>-- SELECT --</option>
                                 <option th:each="location :${locations}"
@@ -502,8 +502,8 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="endDateAdd" class="col-form-label">End Date:</label>
-                            <input type="date" class="form-control" id="endDateAdd" name="date2" placeholder="End Date" required>
+                            <label for="endDateAdd" class="col-form-label">Arrived date:</label>
+                            <input type="date" class="form-control" id="endDateAdd" name="date2" placeholder="Arrived date" required>
                         </div>
                         <div class="form-group">
                             <label for="remarksAdd" class="col-form-label">Remarks:</label>
@@ -550,7 +550,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="ddlStartLocationEdit" class="col-form-label">Start Location:</label>
+                            <label for="ddlStartLocationEdit" class="col-form-label">Departed from:</label>
                             <select type="text" class="form-control" id="ddlStartLocationEdit" name="startlocationid">
                                 <option>-- SELECT --</option>
                                 <option th:each="location :${locations}"
@@ -560,11 +560,11 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="startDateEdit" class="col-form-label">Start Date:</label>
+                            <label for="startDateEdit" class="col-form-label">Departure date:</label>
                             <input type="date" class="form-control" id="startDateEdit" name="date1">
                         </div>
                         <div class="form-group">
-                            <label for="ddlEndLocationEdit" class="col-form-label">End Location:</label>
+                            <label for="ddlEndLocationEdit" class="col-form-label">Arrived at:</label>
                             <select type="text" class="form-control" id="ddlEndLocationEdit" name="endlocationid">
                                 <option>-- SELECT --</option>
                                 <option th:each="location :${locations}"
@@ -574,7 +574,7 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="endDateEdit" class="col-form-label">End Date:</label>
+                            <label for="endDateEdit" class="col-form-label">Arrived date:</label>
                             <input type="date" class="form-control" id="endDateEdit" name="date2">
                         </div>
                         <div class="form-group">
