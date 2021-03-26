@@ -32,7 +32,7 @@ public class VehicleMaintenance {
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date endDate;
 
-    private String price;
+    private Double   price;
 
     @ManyToOne
     @JoinColumn(name = "supplierid", insertable = false, updatable = false)
