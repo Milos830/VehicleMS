@@ -28,17 +28,17 @@ public class VehicleMovement {
     private Integer vehicleid;
 
     @ManyToOne
-    @JoinColumn(name = "locationid", insertable = false, updatable = false)
-    private Location location;
-    private Integer locationid;
+    @JoinColumn(name = "startlocationid", insertable = false, updatable = false)
+    private Location startlocation;
+    private Integer startlocationid;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date1;
 
     @ManyToOne
-    @JoinColumn(name = "locationid2", insertable = false, updatable = false)
-    private Location location2;
-    private int locationid2;
+    @JoinColumn(name = "endlocationid", insertable = false, updatable = false)
+    private Location endlocation;
+    private int endlocationid;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date2;
