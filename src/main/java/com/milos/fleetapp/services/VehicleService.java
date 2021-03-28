@@ -5,6 +5,7 @@ import com.milos.fleetapp.repositories.VehicleRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class VehicleService {
@@ -26,8 +27,8 @@ public class VehicleService {
     }
 
     //find by id
-    public Vehicle findById(Integer id) {
-        return  vehicleRepository.findById(id).orElse(null);
+    public Optional<Vehicle> findById(Integer id) {
+        return  vehicleRepository.findById(id);
     }
 
     //delete by id
