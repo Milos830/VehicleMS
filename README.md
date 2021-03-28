@@ -1,2 +1,2 @@
-Vehicle Management System, Springboot Maven project using MySql to store data and Bootstrap on the front.
-Some of JS to merge functionality.
+Vehicle Management System, Springboot maven project with MySql to store and display data. 
+Bootstrap, Thymeleaf and some JS to merge functionality on html page regarding updating and displaying records
