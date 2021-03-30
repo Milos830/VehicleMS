@@ -28,8 +28,8 @@ $('document').ready(function () {
                 $('#detailsDetails').val(location.details);
                 $('#cityLDetails').val(location.city);
                 $('#addressLDetails').val(location.address);
-                $('#ddlLocationStateDetails').val(location.stateid);
-                $('#ddlLocationCountryDetails').val(location.countryid);
+                $('#ddlLocationStateDetails').val(location.state.name);
+                $('#ddlLocationCountryDetails').val(location.country.description);
                 $('#lastModifiedByDetails').val(location.lastModifiedBy);
                 $('#lastModifiedDateDetails').val(location.lastModifiedDate.substr(0,19).replace("T", " "));
             });

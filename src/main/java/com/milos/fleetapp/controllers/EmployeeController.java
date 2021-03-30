@@ -1,9 +1,7 @@
 package com.milos.fleetapp.controllers;
 
 import com.milos.fleetapp.models.Employee;
-import com.milos.fleetapp.services.EmployeeService;
-import com.milos.fleetapp.services.EmployeeTypeService;
-import com.milos.fleetapp.services.JobTitleService;
+import com.milos.fleetapp.services.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -16,12 +14,16 @@ public class EmployeeController {
     private final EmployeeService employeeService;
     private final EmployeeTypeService employeeTypeService;
     private final JobTitleService jobTitleService;
+    private final CountryService countryService;
+    private final StateService stateService;
 
     public EmployeeController(EmployeeService employeeService, EmployeeTypeService employeeTypeService,
-                              JobTitleService jobTitleService) {
+                              JobTitleService jobTitleService, CountryService countryService, StateService stateService) {
         this.employeeService = employeeService;
         this.employeeTypeService = employeeTypeService;
         this.jobTitleService = jobTitleService;
+        this.countryService = countryService;
+        this.stateService = stateService;
     }
 
     @GetMapping("/employees")
@@ -29,7 +31,8 @@ public class EmployeeController {
         model.addAttribute("employees", employeeService.getAll());
         model.addAttribute("employeetypes", employeeTypeService.getAllEmployeeTypes());
         model.addAttribute("jobtitles", jobTitleService.getJobTitles());
-
+        model.addAttribute("countries", countryService.getCountries());
+        model.addAttribute("states", stateService.getStates());
         return "employee";
     }
 
