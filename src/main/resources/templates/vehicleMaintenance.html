@@ -9,7 +9,7 @@
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Vehicle Maintenance Management Page</title>
+    <title>Vehicle Maintenance Page</title>
 
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -324,7 +324,7 @@
                     </a>
                     <ul class="sub">
                         <li><a class="" th:href="@{/vehicles}">Vehicle Data</a></li>
-                        <li><a class="" th:href="@{/vehiclemaintenance}">Maintenance</a></li>
+                        <li><a class="" th:href="@{/vehiclemaintenances}">Maintenance</a></li>
                         <li><a class="" th:href="@{/vehiclemovements}">Movements</a></li>
                         <li><a class="" th:href="@{/vehiclehires}">Hires</a></li>
                     </ul>
@@ -402,7 +402,7 @@
         <section class="wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h3 class="page-header"><i class="fa fa fa-bars"></i> List Of Vehicle Maintenances</h3>
+                    <h3 class="page-header"><i class="fa fa fa-bars"></i>Vehicle Maintenances</h3>
 
                     <ol class="breadcrumb">
                         <li><i class="fa fa-home"></i><a th:href="@{/index}">Home</a></li>
@@ -430,8 +430,8 @@
                         <!--              attribute countries coming from the controller "vehiclemaintenance"-->
                         <tr th:each="vehiclemaintenance : ${vehiclemaintenances}">
                             <td th:text="${vehiclemaintenance.id}">Id</td>
-                            <td th:text="${vehiclemaintenance.startDate}">Start Date</td>
-                            <td th:text="${vehiclemaintenance.endDate}">End Date</td>
+                            <td th:text="${#dates.format(vehiclemaintenance.startDate, 'yyyy-MM-dd')}">Start Date</td>
+                            <td th:text="${#dates.format(vehiclemaintenance.endDate, 'yyyy-MM-dd')}">End Date</td>
                             <td th:text="${vehiclemaintenance.getVehicle().name}">Vehicle</td>
                             <td th:text="${vehiclemaintenance.getSupplier().name}">Supplier</td>
                             <td th:text="${vehiclemaintenance.price}">Price</td>
@@ -463,11 +463,6 @@
                 <div class="modal-body">
                     <form th:action="@{/vehiclemaintenances/addNew}" method="post">
                         <div class="form-group">
-                            <label for="idAdd" class="col-form-label">Id:</label>
-                            <!--name="" must be same as the property field in the class of the object-->
-                            <input type="text" class="form-control" id="idAdd" name="id" readonly>
-                        </div>
-                        <div class="form-group">
                             <label for="startDateAdd" class="col-form-label">Start Date:</label>
                             <input type="date" class="form-control" id="startDateAdd" name="startDate" placeholder="Start Date" required>
                         </div>
@@ -497,7 +492,7 @@
                         </div>
                         <div class="form-group">
                             <label for="priceAdd" class="col-form-label">Price:</label>
-                            <input type="text" class="form-control" id="priceAdd" name="price" placeholder="Price" required>
+                            <input type="number" class="form-control" id="priceAdd" name="price" placeholder="Price" required>
                         </div>
                         <div class="form-group">
                             <label for="remarksAdd" class="col-form-label">Remarks:</label>
@@ -506,12 +501,13 @@
                         <div class="form-group">
                             <!--button sumbit must be inside the <form> to be able to sumbit the pop up-->
                             <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <!-- btn Close is out side the <form> else if it inside it has same function es Submit button-->
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
                 </div>
             </div>
         </div>
@@ -572,12 +568,14 @@
                         <div class="form-group">
                             <!--button sumbit must be inside the <form> to be able to sumbit the pop up-->
                             <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <!-- btn Close is out side the <form> else if it inside it has same function es Submit button-->
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+
                 </div>
             </div>
         </div>
@@ -630,12 +628,22 @@
                             <input type="text" class="form-control" id="endDateDetails" name="endDate" readonly>
                         </div>
                         <div class="form-group">
-                            <label class="col-form-label">Vehicle:</label>
-                            <input type="text" class="form-control" id="vehicleDetails" name="vehicleid" readonly>
+                            <label for="vehicleDetails" class="col-sm-4 col-form-label">Vehicle:</label>
+                                <select class="form-control" id="vehicleDetails" name="vehicleid" disabled>
+                                    <option th:each="vehicle :${vehicles}"
+                                            th:value="${vehicle.id}"
+                                            th:text="${vehicle.name}">
+                                    </option>
+                                </select>
                         </div>
                         <div class="form-group">
-                            <label class="col-form-label">Supplier:</label>
-                            <input type="text" class="form-control" id="supplierDetails" name="supplierid" readonly>
+                            <label for="supplierDetails" class="col-sm-4 col-form-label">Supplier:</label>
+                            <select class="form-control" id="supplierDetails" name="supplierid" disabled>
+                                <option th:each="supplier :${suppliers}"
+                                        th:value="${supplier.id}"
+                                        th:text="${supplier.name}">
+                                </option>
+                            </select>
                         </div>
                         <div class="form-group">
                             <label class="col-form-label">Price:</label>

@@ -9,7 +9,7 @@
     <meta name="keyword" content="Creative, Dashboard, Admin, Template, Theme, Bootstrap, Responsive, Retina, Minimal">
     <link rel="shortcut icon" href="img/favicon.png">
 
-    <title>Vehicle Movement Management Page</title>
+    <title>Vehicle Movement Page</title>
 
     <!-- Bootstrap CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -324,7 +324,7 @@
                     </a>
                     <ul class="sub">
                         <li><a class="" th:href="@{/vehicles}">Vehicle Data</a></li>
-                        <li><a class="" th:href="@{/vehiclemaintenance}">Maintenance</a></li>
+                        <li><a class="" th:href="@{/vehiclemaintenances}">Maintenance</a></li>
                         <li><a class="" th:href="@{/vehiclemovements}">Movements</a></li>
                         <li><a class="" th:href="@{/vehiclehires}">Hires</a></li>
                     </ul>
@@ -430,11 +430,11 @@
                         <!--              attribute countries coming from the controller "vehiclemaintenance"-->
                         <tr th:each="vehiclemovement : ${vehiclemovements}">
                             <td th:text="${vehiclemovement.id}">Id</td>
-                            <td th:text="${vehiclemovement.vehicle.description}">Vehicle</td>
-                            <td th:text="${vehiclemovement.startlocation.description}">Location Start</td>
-                            <td th:text="${vehiclemovement.date1}">Start Date</td>
-                            <td th:text="${vehiclemovement.endlocation.description}">Location End</td>
-                            <td th:text="${vehiclemovement.date2}">End Date</td>
+                            <td th:text="${vehiclemovement.vehicle.name}">Vehicle</td>
+                            <td th:text="${vehiclemovement.startlocation.city + ', ' + vehiclemovement.startlocation.address}">Location Start</td>
+                            <td th:text="${#dates.format(vehiclemovement.date1, 'yyyy-MM-dd')}">Start Date</td>
+                            <td th:text="${vehiclemovement.endlocation.city + ', ' + vehiclemovement.endlocation.address}">Location End</td>
+                            <td th:text="${#dates.format(vehiclemovement.date2, 'yyyy-MM-dd')}">End Date</td>
                             <td th:text="${vehiclemovement.remarks}">Remarks</td>
                             <td>
                                 <div class="btn-group">
@@ -463,17 +463,12 @@
                 <div class="modal-body">
                     <form th:action="@{/vehiclemovements/addNew}" method="post">
                         <div class="form-group">
-                            <label for="idAdd" class="col-form-label">ID:</label>
-                            <!--name="" must be same as the property field in the class of the object-->
-                            <input type="text" class="form-control" id="idAdd" name="id" readonly>
-                        </div>
-                        <div class="form-group">
                             <label for="ddlVehicleAdd" class="col-form-label">Vehicle:</label>
                             <select type="text" class="form-control" id="ddlVehicleAdd" name="vehicleid" required>
                                 <option>-- SELECT --</option>
                                 <option th:each="vehicle :${vehicles}"
                                         th:value="${vehicle.id}"
-                                        th:text="${vehicle.description}">
+                                        th:text="${vehicle.name}">
                                 </option>
                             </select>
                         </div>
@@ -483,7 +478,7 @@
                                 <option>-- SELECT --</option>
                                 <option th:each="location :${locations}"
                                         th:value="${location.id}"
-                                        th:text="${location.description}">
+                                        th:text="${location.city}">
                                 </option>
                             </select>
                         </div>

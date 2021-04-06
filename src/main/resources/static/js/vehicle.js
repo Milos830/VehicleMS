@@ -1,5 +1,5 @@
 $('document').ready(function () {
-    $('table #editButton').on('click', function (event) {
+    $('.table #editButton').on('click', function (event) {
          event.preventDefault();
 
         // trying to hit url   /vehicles/findById/?id=1
@@ -7,20 +7,16 @@ $('document').ready(function () {
 
         $.get(href, function (vehicle, status) {
             $('#IdEdit').val(vehicle.id);
+            $('#ddlVehicleMakeEdit').val(vehicle.vehiclemakeid);
+            $('#ddlVehicleModelEdit').val(vehicle.vehiclemodelid);
             $('#ddlVehicleTypeEdit').val(vehicle.vehicletypeid);
             $('#vehicleNameEdit').val(vehicle.name);
             $('#vehicleNumberEdit').val(vehicle.vehiclenumber);
 
-            var regDate = vehicle.registrationDate.substr(0,10);
-            $('#RegistrationDateEdit').val(regDate);
+            $('#AcquisitionDateEdit').val(vehicle.acquisitionDate.substr(0,10));
+            $('#RegistrationDateEdit').val(vehicle.registrationDate.substr(0,10));
 
             $('#DescriptionEdit').val(vehicle.description);
-
-            var acqDate = vehicle.acquisitionDate.substr(0,10);
-            $('#dateInAdd').val(acqDate);
-
-            $('#ddlVehicleMakeEdit').val(vehicle.vehiclemakeid);
-            $('#ddlVehicleModelEdit').val(vehicle.vehiclemodelid);
             $('#ddlCurrentLocationEdit').val(vehicle.locationid);
             $('#PowerEdit').val(vehicle.power);
             $('#FuelCapacityEdit').val(vehicle.fuelCapacity);
@@ -33,7 +29,7 @@ $('document').ready(function () {
         $('#editModal').modal();
     });
 
-        $('table #detailsButton').on('click', function (event) {
+        $('.table #detailsButton').on('click', function (event) {
             event.preventDefault();
 
             var href = $(this).attr('href');

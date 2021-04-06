@@ -429,7 +429,7 @@
                         <tr th:each="invoice : ${invoices}">
                             <td th:text="${invoice.id}">Id</td>
                             <td th:text="${invoice.client.name}">Client</td>
-                            <td th:text="${invoice.invoiceDate}">Date</td>
+                            <td th:text="${#dates.format(invoice.invoiceDate, 'yyyy-MM-dd')}">Date</td>
                             <td th:text="${invoice.getInvoiceStatus().description}">Status</td>
                             <td th:text="${invoice.remarks}">Remarks</td>
                             <td>
@@ -465,7 +465,7 @@
                         </div>
                         <div class="form-group">
                             <label for="ddlClientAdd" class="col-form-label">Client:</label>
-                            <select type="text" class="form-control" id="ddlClientAdd" name="clientid">
+                            <select type="text" class="form-control" id="ddlClientAdd" name="clientid" required>
                                 <option>-- SELECT --</option>
                                 <option th:each="client :${clients}"
                                         th:value="${client.id}"
@@ -475,13 +475,13 @@
                         </div>
                         <div class="form-group">
                             <label for="dateAdd" class="col-form-label">Date:</label>
-                            <input type="date" class="form-control" id="dateAdd" name="invoiceDate">
+                            <input type="date" class="form-control" id="dateAdd" name="invoiceDate" required>
                         </div>
                         <div class="form-group">
                             <label for="ddlInvoiceStatusAdd" class="col-form-label">Status:</label>
-                            <select type="text" class="form-control" id="ddlInvoiceStatusAdd" name="invoicestatusid">
+                            <select type="text" class="form-control" id="ddlInvoiceStatusAdd" name="invoicestatusid" required>
                                 <option>-- SELECT --</option>
-                                <option th:each="invoicestatus :${invoicestatus}"
+                                <option th:each="invoicestatus :${invoicestatuses}"
                                         th:value="${invoicestatus.id}"
                                         th:text="${invoicestatus.description}">
                                 </option>
@@ -539,7 +539,7 @@
                             <label for="ddlInvoiceStatusEdit" class="col-form-label">Status:</label>
                             <select type="text" class="form-control" id="ddlInvoiceStatusEdit" name="invoicestatusid">
                                 <option>-- SELECT --</option>
-                                <option th:each="invoicestatus :${invoicestatus}"
+                                <option th:each="invoicestatus :${invoicestatuses}"
                                         th:value="${invoicestatus.id}"
                                         th:text="${invoicestatus.description}">
                                 </option>

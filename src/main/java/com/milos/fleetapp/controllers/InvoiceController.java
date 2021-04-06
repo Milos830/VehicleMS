@@ -36,7 +36,7 @@ public class InvoiceController {
         model.addAttribute("clients", clientList);
 
         List<InvoiceStatus> invoiceStatusList = invoiceStatusService.getInvoiceStatuses();
-        model.addAttribute("invoicestatus", invoiceStatusList);
+        model.addAttribute("invoicestatuses", invoiceStatusList);
         return "invoice";
     }
 

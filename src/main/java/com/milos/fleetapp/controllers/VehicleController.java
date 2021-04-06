@@ -64,7 +64,7 @@ public class VehicleController {
         return "redirect:/vehicles";
     }
 
-    @RequestMapping(value = "/vehicles/deleteById", method = {RequestMethod.DELETE, RequestMethod.GET})
+    @RequestMapping(value = "/vehicles/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String deleteById(Integer id) {
         vehicleService.deleteById(id);
         return "redirect:/vehicles";

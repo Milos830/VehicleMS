@@ -39,8 +39,8 @@ $('document').ready(function () {
                 $('#websiteDetails').val(client.website);
                 $('#addressLDetails').val(client.address);
                 $('#cityLDetails').val(client.city);
-                $('#ddlLocationStateDetails').val(client.stateid);
-                $('#ddlLocationCountryDetails').val(client.countryid);
+                $('#StateDetails').val(client.stateid);
+                $('#CountryDetails').val(client.countryid);
                 $('#lastModifiedByDetails').val(client.lastModifiedBy);
                 $('#lastModifiedDateDetails').val(client.lastModifiedDate.substr(0,19).replace("T", " "));
             });

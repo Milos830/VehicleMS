@@ -434,7 +434,7 @@
                             <tr th:each="employee : ${employees}">
                                 <td th:text="${employee.id}">Id</td>
                                 <td th:text="${employee.firstName + ' ' + employee.lastName}">Full Name</td>
-                                <td th:text="${#dates.format(employee.hireDate, 'yyyy-mm-dd')}">Hire Date</td>
+                                <td th:text="${#dates.format(employee.hireDate, 'yyyy-MM-dd')}">Hire Date</td>
                                 <td th:text="${employee.email}">City</td>
                                 <td th:text="${employee.city}">Phone</td>
                                 <td th:text="${employee.phone}">Mobile</td>
@@ -461,7 +461,7 @@
             <div class="modal-dialog modal-lg" role="document" style="width:70%">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel1">New Employee Record</h5>
+                        <h5 class="modal-title" id="exampleModalLabel1">New Employee</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -516,8 +516,8 @@
                                             <div class="col-sm-6">
                                                 <select class="form-control" id="ddlgenderAdd" name="gender" required>
                                                     <option>-SELECT-</option>
-                                                    <option value="MALE">MALE</option>
-                                                    <option value="FEMALE">FEMALE</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -528,7 +528,7 @@
                                                     <option>-SELECT-</option>
                                                     <option th:each="country : ${countries}"
                                                             th:value="${country.id}"
-                                                            th:text="${country.description}">
+                                                            th:text="${country.nationality}">
                                                     </option>
                                                 </select>
                                             </div>
@@ -654,6 +654,12 @@
                                 <tr>
                                     <td width="50%">
                                         <div class="form-group row">
+                                            <label for="IdEdit" class="col-sm-4 col-form-label">ID: </label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="IdEdit" name="id" placeholder="ID" readonly>
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
                                             <label for="ddltitleEdit" class="col-sm-4 col-form-label">Title: </label>
                                             <div class="col-sm-6">
                                                 <select class="form-control" id="ddltitleEdit" name="title">
@@ -698,8 +704,8 @@
                                             <div class="col-sm-6">
                                                 <select class="form-control" id="ddlgenderEdit" name="gender">
                                                     <option>-SELECT-</option>
-                                                    <option value="MALE">MALE</option>
-                                                    <option value="FEMALE">FEMALE</option>
+                                                    <option value="Male">Male</option>
+                                                    <option value="Female">Female</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -710,7 +716,7 @@
                                                     <option>-SELECT-</option>
                                                     <option th:each="country : ${countries}"
                                                             th:value="${country.id}"
-                                                            th:text="${country.description}">
+                                                            th:text="${country.nationality}">
                                                     </option>
                                                 </select>
                                             </div>
@@ -724,7 +730,7 @@
                                     </td>
                                     <td width="50%" style="padding-left:10px">
                                         <div class="form-group row">
-                                            <label for="dateOfBirthEdit" class="col-sm-4 col-form-label">Date of birth: </label>
+                                            <label for="dateOfBirthEdit" class="col-sm-4 col-form-label">Date of birth:</label>
                                             <div class="col-sm-6">
                                                 <input type="date" class="form-control" id="dateOfBirthEdit" name="dateOfBirth" placeholder="Date Of Birth">
                                             </div>
@@ -845,7 +851,7 @@
     <!--Detail Modal -->
     <div class="modal fade" id="detailsModal" tabindex="-1" role="dialog" aria-labelledby="ModalLabel" aria-hidden="true">
         <form>
-            <div class="modal-dialog" role="document">
+            <div class="modal-dialog modal-lg" role="document" style="width: 70%">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="editModalLabel">Employee Details</h5>
@@ -858,95 +864,133 @@
                             <table width="100%">
                                 <tr>
                                     <td width="50%">
-                                        <div class="form-group">
-                                            <label for="IdDetails" class="col-sm-4 col-form-label">ID: </label>
-                                            <input type="text" class="form-control" id="IdDetails" name="id" readonly>
+                                        <div class="form-group row">
+                                            <label for="idDetails" class="col-sm-4 col-form-label">ID: </label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="idDetails" name="id" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group row">
                                             <label for="titleDetails" class="col-sm-4 col-form-label">Title: </label>
-                                            <input type="text" class="form-control" id="titleDetails" name="title" readonly>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="titleDetails" name="title" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group row">
                                             <label for="initialsDetails" class="col-sm-4 col-form-label">Initials: </label>
-                                            <input type="text" class="form-control" id="initialsDetails" name="title" readonly>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="initialsDetails" name="initials" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group row">
                                             <label for="ssnDetails" class="col-sm-4 col-form-label">Social Security Number: </label>
-                                            <input type="text" class="form-control" id="ssnDetails" name="socialSecurityNumber" readonly>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="ssnDetails" name="socialSecurityNumber" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group row">
                                             <label for="firstNameDetails" class="col-sm-4 col-form-label">First Name: </label>
-                                            <input type="text" class="form-control" id="firstNameDetails" name="firstName" readonly>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="firstNameDetails" name="firstName" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group row">
                                             <label for="lastNameDetails" class="col-sm-4 col-form-label">Last Name: </label>
-                                            <input type="text" class="form-control" id="lastNameDetails" name="lastName" readonly>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="lastNameDetails" name="lastName" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group row">
                                             <label for="otherNameDetails" class="col-sm-4 col-form-label">Other Name: </label>
-                                            <input type="text" class="form-control" id="otherNameDetails" name="otherName" readonly>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="otherNameDetails" name="otherName" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group row">
                                             <label for="genderDetails" class="col-sm-4 col-form-label">Gender: </label>
-                                            <input type="text" class="form-control" id="genderDetails" name="gender" readonly>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="genderDetails" name="gender" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group row">
                                             <label for="nationalityDetails" class="col-sm-4 col-form-label">Nationality: </label>
-                                            <input type="text" class="form-control" id="nationalityDetails" name="countryid" readonly>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="nationalityDetails" name="countryid" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group row">
                                             <label for="addressDetails" class="col-sm-4 col-form-label">Address: </label>
-                                            <input type="text" class="form-control" id="addressDetails" name="address" readonly>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="addressDetails" rows="3" name="address" readonly>
+                                            </div>
                                         </div>
                                     </td>
-                                    <td width="50%" style="....">
-                                        <div class="form-group">
+                                    <td width="50%" style="padding-left: 10px">
+                                        <div class="form-group row">
                                             <label for="dateOfBirthDetails" class="col-sm-4 col-form-label">Date of birth: </label>
-                                            <input type="text" class="form-control" id="dateOfBirthDetails" name="dateOfBirth" readonly>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="dateOfBirthDetails" name="dateOfBirth" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="hireDateDetails" class="col-sm-4 col-form-label">Hire Date: </label>
-                                            <input type="text" class="form-control" id="hireDateDetails" name="hireDate" readonly>
+                                        <div class="form-group row">
+                                            <label for="hireDateDetails" class="col-sm-4 col-form-label">Hire date: </label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="hireDateDetails" name="hireDate" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="stateDetails" class="col-sm-4 col-form-label">State/Province: </label>
-                                            <input type="text" class="form-control" id="stateDetails" name="stateid" readonly>
+                                        <div class="form-group row">
+                                            <label for="StateDetails" class="col-sm-4 col-form-label">State: </label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="StateDetails" name="stateid" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="cityDetails" class="col-sm-4 col-form-label">City: </label>
-                                            <input type="text" class="form-control" id="cityDetails" name="city" readonly>
-                                        </div>
-                                        <div class="form-group">
+                                        <div class="form-group row">
                                             <label for="phoneDetails" class="col-sm-4 col-form-label">Phone: </label>
-                                            <input type="text" class="form-control" id="phoneDetails" name="phone" readonly>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="phoneDetails" name="phone" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="mobileDetails" class="col-sm-4 col-form-label">Mobile: </label>
-                                            <input type="text" class="form-control" id="mobileDetails" name="mobile" readonly>
+                                        <div class="form-group row">
+                                            <label for="mobileDetails" class="col-sm-4 col-form-label">Mobile:</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="mobileDetails" name="mobile" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="maritalStatusDetails" class="col-sm-4 col-form-label">Marital Status: </label>
-                                            <input type="text" class="form-control" id="maritalStatusDetails" name="maritalStatus" readonly>
+                                        <div class="form-group row">
+                                            <label for="maritalStatusDetails" class="col-sm-4 col-form-label">Marital Status:</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="maritalStatusDetails" name="maritalStatus" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="emailDetails" class="col-sm-4 col-form-label">E-mail: </label>
-                                            <input type="text" class="form-control" id="emailDetails" name="email" readonly>
+                                        <div class="form-group row">
+                                            <label for="emailDetails" class="col-sm-4 col-form-label">E-mail:</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="emailDetails" name="email" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="jobTitleDetails" class="col-sm-4 col-form-label">Job Title: </label>
-                                            <input type="text" class="form-control" id="jobTitleDetails" name="jobtitleid" readonly>
+                                        <div class="form-group row">
+                                            <label for="jobTitleDetails" class="col-sm-4 col-form-label">Job Title:</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="jobTitleDetails" name="jobtitleid" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label for="employeeTypeDetails" class="col-sm-4 col-form-label">Employee Type: </label>
-                                            <input type="text" class="form-control" id="employeeTypeDetails" name="employeetypeid" readonly>
+                                        <div class="form-group row">
+                                            <label for="employeeTypeDetails" class="col-sm-4 col-form-label">Employee Type:</label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="employeeTypeDetails" name="employeetypeid" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Last Updated By:</label>
-                                            <input type="text" class="form-control" id="lastModifiedByDetails" name="lastModifiedBy" readonly>
+                                        <div class="form-group row">
+                                            <label for="lastModifiedByDetails" class="col-sm-4 col-form-label">Last Updated By: </label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="lastModifiedByDetails" name="lastModifiedBy" readonly>
+                                            </div>
                                         </div>
-                                        <div class="form-group">
-                                            <label class="col-form-label">Last Updated On:</label>
-                                            <input type="text" class="form-control" id="lastModifiedDateDetails" name="lastModifiedDate" readonly>
+                                        <div class="form-group row">
+                                            <label for="lastModifiedDateDetails" class="col-sm-4 col-form-label">Last Updated On: </label>
+                                            <div class="col-sm-6">
+                                                <input type="text" class="form-control" id="lastModifiedDateDetails" name="lastModifiedDate" readonly>
+                                            </div>
                                         </div>
                                     </td>
                                 </tr>
