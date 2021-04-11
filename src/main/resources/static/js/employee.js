@@ -77,5 +77,13 @@ $('document').ready(function () {
         $('#deleteModal').modal();
     });
 
+    $('.table #photoButton').on('click', function (event) {
+        event.preventDefault(); //means that is not going to navigate to new page
+
+        var href = $(this).attr('href');
+        $('#photoModal #employeePhoto').attr('src', href);
+
+        $('#photoModal').modal();
+    });
 
 });
