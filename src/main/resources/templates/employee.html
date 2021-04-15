@@ -423,6 +423,7 @@
                             <tbody>
                             <tr>
                                 <th>Photo</th>
+                                <th>UserName</th>
                                 <th>Id</th>
                                 <th>Full Name</th>
                                 <th>Hire Date</th>
@@ -438,6 +439,7 @@
                                         <img th:src="@{'/img/photos/' + ${employee.id} + '.jpg'}" width="40" height="40">
                                     </a>
                                 </td>
+                                <td><a th:text="${employee.userName} ?: 'Check'" th:href="@{/employees/assignUserName/(id=${employee.id})}"></a></td>
                                 <td th:text="${employee.id}">Id</td>
                                 <td th:text="${employee.firstName + ' ' + employee.lastName}">Full Name</td>
                                 <td th:text="${#dates.format(employee.hireDate, 'yyyy-MM-dd')}">Hire Date</td>
@@ -821,6 +823,7 @@
                                     </td>
                                 </tr>
                             </table>
+                            <input type="hidden" id="txtUserNameEdit" name="userName">
                         </form>
                     </div>
                     <div class="modal-footer">

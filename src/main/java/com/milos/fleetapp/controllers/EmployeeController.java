@@ -17,6 +17,7 @@ public class EmployeeController {
     private final CountryService countryService;
     private final StateService stateService;
 
+
     public EmployeeController(EmployeeService employeeService, EmployeeTypeService employeeTypeService,
                               JobTitleService jobTitleService, CountryService countryService, StateService stateService) {
         this.employeeService = employeeService;
@@ -24,6 +25,7 @@ public class EmployeeController {
         this.jobTitleService = jobTitleService;
         this.countryService = countryService;
         this.stateService = stateService;
+
     }
 
     @GetMapping("/employees")
@@ -56,6 +58,12 @@ public class EmployeeController {
     @RequestMapping(value = "/employees/delete", method = {RequestMethod.DELETE, RequestMethod.GET})
     public String deleteById(Integer id) {
         employeeService.deleteById(id);
+        return "redirect:/employees";
+    }
+
+    @RequestMapping(value = "/employees/assignUserName")
+    public String assignUserName(Integer id) {
+        employeeService.assignUserName(id);
         return "redirect:/employees";
     }
 
